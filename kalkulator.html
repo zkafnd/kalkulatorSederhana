@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalkulator Pertambahan, Pengurangan, dan Perkalian</title>
+<title>Kalkulator Pertambahan, Pengurangan, Perkalian, dan Pembagian</title>
 </head>
 <body>
-  <h1>Kalkulator Pertambahan, Pengurangan, dan Perkalian</h1>
+  <h1>Kalkulator Pertambahan, Pengurangan, Perkalian, dan Pembagian</h1>
   <label for="num1">Angka Pertama:</label>
   <input type="number" id="num1"><br><br>
   <label for="num2">Angka Kedua:</label>
   <input type="number" id="num2"><br><br>
   <button onclick="tambah()">Tambah</button>
   <button onclick="kurang()">Kurang</button>
-  <button onclick="kali()">Kali</button><br><br>
+  <button onclick="kali()">Kali</button>
+  <button onclick="bagi()">Bagi</button><br><br>
   <p id="hasil"></p>
 
   <script>
@@ -42,6 +43,18 @@
       const hasil = angka1 * angka2;
       
       document.getElementById('hasil').innerText = `Hasil: ${hasil}`;
+    }
+
+    function bagi() {
+      const angka1 = parseFloat(document.getElementById('num1').value);
+      const angka2 = parseFloat(document.getElementById('num2').value);
+
+      if (angka2 === 0) {
+        document.getElementById('hasil').innerText = "Pembagian oleh nol tidak diperbolehkan.";
+      } else {
+        const hasil = angka1 / angka2;
+        document.getElementById('hasil').innerText = `Hasil: ${hasil}`;
+      }
     }
   </script>
 </body>
