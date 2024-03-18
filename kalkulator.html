@@ -3,20 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kalkulator Pertambahan, Pengurangan, Perkalian, Pembagian, dan Modulus</title>
+<title>Kalkulator Sederhana</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative; /* Added for positioning watermark */
+  }
+
+  .calculator {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+  }
+
+  input[type="number"],
+  button {
+    width: calc(50% - 5px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #000;
+  }
+
+  input[type="number"] {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    padding-left: 15px;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #hasil {
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn-container button {
+    width: calc(25% - 5px);
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  /* Watermark styles */
+  .watermark {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px; /* Adjust font size here */
+    color: #888;
+  }
+
+  @media screen and (max-width: 768px) {
+    input[type="number"],
+    button {
+      width: 100%;
+    }
+
+    .btn-container button {
+      width: calc(50% - 5px);
+    }
+  }
+</style>
 </head>
 <body>
-  <h1>Kalkulator Pertambahan, Pengurangan, Perkalian, Pembagian, dan Modulus</h1>
-  <label for="num1">Angka Pertama:</label>
-  <input type="number" id="num1"><br><br>
-  <label for="num2">Angka Kedua:</label>
-  <input type="number" id="num2"><br><br>
-  <button onclick="tambah()">Tambah</button>
-  <button onclick="kurang()">Kurang</button>
-  <button onclick="kali()">Kali</button>
-  <button onclick="bagi()">Bagi</button>
-  <button onclick="modulus()">Modulus</button><br><br>
-  <p id="hasil"></p>
+  <div class="calculator">
+    <h1>Kalkulator Sederhana</h1>
+    <label for="num1">Angka Pertama:</label>
+    <input type="number" id="num1">
+    <label for="num2">Angka Kedua:</label>
+    <input type="number" id="num2">
+    <div class="btn-container">
+      <button onclick="tambah()">+</button>
+      <button onclick="kurang()">-</button>
+      <button onclick="kali()">&#215;</button>
+      <button onclick="bagi()">÷</button>
+      <button onclick="modulus()">%</button>
+    </div>
+    <p id="hasil"></p>
+    <p class="watermark">by: Zaki Affandi - 6701220083</p>
+  </div>
 
   <script>
     function tambah() {
